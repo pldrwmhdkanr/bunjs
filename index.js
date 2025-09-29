@@ -7,9 +7,14 @@ const port = process.env.PORT || 3000;
 // 为了部署，我们通常不指定 host，让它默认为 '0.0.0.0'
 const host = '0.0.0.0'; 
 
+const resp = {
+  code: 200,
+  message: '在吗, 小桑。',
+}
+
 const server = createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
-  res.end('Hello World!\n');
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify(resp));
 });
 
 server.listen(port, host, () => {
